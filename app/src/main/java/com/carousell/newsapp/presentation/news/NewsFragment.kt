@@ -12,6 +12,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.carousell.newsapp.carousellnewsapp.R
 import com.carousell.newsapp.carousellnewsapp.databinding.NewsFragmentBinding
 import com.carousell.newsapp.common.Resource
@@ -71,9 +72,8 @@ class NewsFragment : Fragment(), NewsAdapter.NewsItemListener {
 
     private fun setupUI() {
         binding.newsRv.apply {
-            layoutManager = GridLayoutManager(
-                context,
-                if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) 3 else 6
+            layoutManager = LinearLayoutManager(
+                context
             )
             setHasFixedSize(true)
         }

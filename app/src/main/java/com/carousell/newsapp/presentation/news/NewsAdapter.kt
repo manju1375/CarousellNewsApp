@@ -33,6 +33,11 @@ class NewsAdapter(
             this.newsItem = newsItem
             val bannerUrl = newsItem.bannerUrl
             Glide.with(binding.root).load(bannerUrl).into(binding.newsBanner)
+            binding.apply {
+                tvTitle.text = newsItem.title
+                tvDesc.text = newsItem.description
+                tvDate.text = newsItem.timeCreated.toString()
+            }
         }
 
         override fun onClick(v: View?) {
