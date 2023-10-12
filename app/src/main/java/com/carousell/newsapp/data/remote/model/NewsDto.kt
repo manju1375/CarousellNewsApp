@@ -1,5 +1,6 @@
 package com.carousell.newsapp.data.remote.model
 
+import com.carousell.newsapp.common.getDateElapsedString
 import com.carousell.newsapp.domain.model.NewsItem
 import com.google.gson.annotations.SerializedName
 
@@ -20,7 +21,7 @@ fun NewsDto.toNewsItem(): NewsItem {
         title = title,
         description = description,
         bannerUrl = bannerUrl,
-        timeCreated = timeCreated,
+        timeCreated = getDateElapsedString(timeCreated = timeCreated),
         rank = rank
     )
 }

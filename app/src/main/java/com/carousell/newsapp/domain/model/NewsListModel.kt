@@ -1,7 +1,5 @@
 package com.carousell.newsapp.domain.model
 
-import com.carousell.newsapp.data.remote.model.NewsDto
-
 data class NewsListModel(
     val newsListItem: List<NewsItem>
 )
