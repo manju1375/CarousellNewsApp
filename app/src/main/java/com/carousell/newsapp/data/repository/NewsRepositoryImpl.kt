@@ -6,6 +6,9 @@ import com.carousell.newsapp.common.UiText
 import com.carousell.newsapp.data.remote.NewsApi
 import com.carousell.newsapp.data.remote.model.toNewsItem
 import com.carousell.newsapp.domain.model.NewsItem
+import com.carousell.newsapp.domain.model.NewsListModel
+import com.carousell.newsapp.domain.model.toPopularNewsList
+import com.carousell.newsapp.domain.model.toRecentNewsList
 
 import com.carousell.newsapp.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
@@ -16,11 +19,16 @@ import javax.inject.Inject
 
 class NewsRepositoryImpl @Inject constructor(private val api: NewsApi) : NewsRepository {
 
-    override suspend fun getNews(): Flow<Resource<List<NewsItem>>> = flow {
+    suspend fun getNews():List<NewsItem> {
+        return api.getNews().map { it.toNewsItem() }
+    }
+
+    override suspend fun getRecentNews(): Flow<Resource<List<NewsItem>>> = flow {
         try {
             emit(Resource.Loading())
-            val list = api.getNews().map { it.toNewsItem() }
-            emit(Resource.Success(list))
+            val list = getNews()
+            val recentLists = NewsListModel(list).toRecentNewsList()
+            emit(Resource.Success(recentLists))
         } catch (e: HttpException) {
             emit(
                 Resource.Error(
@@ -31,4 +39,23 @@ class NewsRepositoryImpl @Inject constructor(private val api: NewsApi) : NewsRep
             emit(Resource.Error(UiText.StringResource(R.string.oops_something_went_wrong)))
         }
     }
+
+    override suspend fun getPopularNews(): Flow<Resource<List<NewsItem>>> = flow {
+        try {
+            emit(Resource.Loading())
+            val list = getNews()
+            val popularNewsList = NewsListModel(list).toPopularNewsList()
+            emit(Resource.Success(popularNewsList))
+        } catch (e: HttpException) {
+            emit(
+                Resource.Error(
+                    UiText.StringResource(R.string.error_couldnt_reach_server)
+                )
+            )
+        } catch (e: IOException) {
+            emit(Resource.Error(UiText.StringResource(R.string.oops_something_went_wrong)))
+        }
+    }
+
+
 }

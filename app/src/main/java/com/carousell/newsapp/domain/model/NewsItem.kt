@@ -5,5 +5,6 @@ data class NewsItem(
     val title:String,
     val description:String,
     val bannerUrl:String,
-    val timeCreated:Long
+    val timeCreated:Long,
+    val rank:Int
 )

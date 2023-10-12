@@ -20,7 +20,8 @@ fun NewsDto.toNewsItem(): NewsItem {
         title = title,
         description = description,
         bannerUrl = bannerUrl,
-        timeCreated = timeCreated
+        timeCreated = timeCreated,
+        rank = rank
     )
 }
 

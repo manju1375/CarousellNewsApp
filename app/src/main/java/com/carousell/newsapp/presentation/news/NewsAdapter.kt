@@ -57,6 +57,7 @@ class NewsAdapter(
 
     @SuppressLint("NotifyDataSetChanged")
     fun addData(list: List<NewsItem>) {
+        newsList.clear()
         newsList.addAll(list)
         notifyDataSetChanged()
     }

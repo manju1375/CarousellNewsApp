@@ -1,10 +1,10 @@
 package com.carousell.newsapp.presentation.news
 
 import com.carousell.newsapp.common.Resource
-import com.carousell.newsapp.core.dispatchers.Dispatcher
 import com.carousell.newsapp.core.viewmodel.BaseViewModel
 import com.carousell.newsapp.domain.model.NewsItem
-import com.carousell.newsapp.domain.use_case.get_popular_movies.GetNewsUseCase
+import com.carousell.newsapp.domain.use_case.get_popular_news.GetPopularNewsUseCase
+import com.carousell.newsapp.domain.use_case.get_recent_news.GetRecentsNewsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -12,20 +12,33 @@ import javax.inject.Inject
 
 @HiltViewModel
 class NewsViewModel @Inject constructor(
-    private val getNewsUseCase: GetNewsUseCase
+    private val getRecentsNewsUseCase: GetRecentsNewsUseCase,
+    private val getPopularNewsUseCase: GetPopularNewsUseCase
 ) : BaseViewModel() {
 
-    private val _news = MutableStateFlow<Resource<List<NewsItem>>>(Resource.Loading())
-    val news = _news.asStateFlow()
+    private val _recentNews = MutableStateFlow<Resource<List<NewsItem>>>(Resource.Loading())
+    val recentNews = _recentNews.asStateFlow()
+
+    private val _popularNews = MutableStateFlow<Resource<List<NewsItem>>>(Resource.Loading())
+    val popularNews = _popularNews.asStateFlow()
 
     init {
-        getNews()
+        getRecentNews()
+        getPopularNews()
     }
 
-    private fun getNews() {
+    private fun getRecentNews() {
         launchOnMain {
-            getNewsUseCase().collect {
-                _news.value = it
+            getRecentsNewsUseCase().collect {
+                _recentNews.value = it
+            }
+        }
+    }
+
+    private fun getPopularNews() {
+        launchOnMain {
+            getPopularNewsUseCase().collect {
+                _popularNews.value = it
             }
         }
     }
