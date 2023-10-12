@@ -7,8 +7,8 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/news_list_item_margin"
         android:layout_marginStart="@dimen/news_list_item_margin"
+        android:layout_marginTop="@dimen/news_list_item_margin"
         android:layout_marginEnd="@dimen/news_list_item_margin"
         android:clickable="true"
         android:focusable="true"
@@ -34,25 +34,24 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_title"
+                style="@style/RobotoMediumTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/title_top_margin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/news_banner"
-                style="@style/RobotoMediumTextStyle"
-                android:textSize="@dimen/text_title_size"/>
+                app:layout_constraintTop_toBottomOf="@id/news_banner" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_desc"
+                style="@style/RobotoTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/title_top_margin"
+                android:textSize="@dimen/text_desc_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_title"
-                style="@style/RobotoTextViewStyle"
-                android:textSize="@dimen/text_desc_size"/>
+                app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_date"
@@ -61,7 +60,8 @@
                 android:layout_marginTop="@dimen/title_top_margin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_desc" />
+                app:layout_constraintTop_toBottomOf="@id/tv_desc"
+                style="@style/RobotoTextViewStyle_Small"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>

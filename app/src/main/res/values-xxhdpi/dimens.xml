@@ -6,4 +6,7 @@
     <dimen name="date_top_margin">18dp</dimen>
     <dimen name="text_desc_size">14sp</dimen>
     <dimen name="text_title_size">16sp</dimen>
+    <dimen name="text_date_size">12sp</dimen>
+    <dimen name="tv_padding">16dp</dimen>
+    <dimen name="date_tv_margin_bottom">12dp</dimen>
 </resources>
