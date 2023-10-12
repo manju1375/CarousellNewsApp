@@ -10,4 +10,6 @@
     <color name="red_primary">#e90005</color>
     <color name="red_secondary">#bb0007</color>
     <color name="white_secondary">#FFFFFF</color>
+    <color name="light_bluish_grey">#ecf0f7</color>
+    <color name="grey_text">#262629</color>
 </resources>

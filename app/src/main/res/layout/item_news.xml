@@ -5,18 +5,18 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/news_list_item_margin"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="@dimen/news_list_item_margin"
+        android:layout_marginStart="@dimen/news_list_item_margin"
+        android:layout_marginEnd="@dimen/news_list_item_margin"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?selectableItemBackground"
         app:cardCornerRadius="5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
@@ -39,7 +39,9 @@
                 android:layout_marginTop="@dimen/title_top_margin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/news_banner" />
+                app:layout_constraintTop_toBottomOf="@id/news_banner"
+                style="@style/RobotoMediumTextStyle"
+                android:textSize="@dimen/text_title_size"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_desc"
@@ -48,7 +50,9 @@
                 android:layout_marginTop="@dimen/title_top_margin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_title" />
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                style="@style/RobotoTextViewStyle"
+                android:textSize="@dimen/text_desc_size"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_date"
