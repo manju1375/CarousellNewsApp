@@ -1,12 +1,11 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="news_list_item_margin">8dp</dimen>
-    <dimen name="title_top_margin">6dp</dimen>
-    <dimen name="desc_top_margin">2dp</dimen>
-    <dimen name="date_top_margin">4dp</dimen>
+    <dimen name="title_top_margin">12dp</dimen>
+    <dimen name="desc_top_margin">4dp</dimen>
+    <dimen name="date_top_margin">8dp</dimen>
     <dimen name="text_desc_size">14sp</dimen>
     <dimen name="text_title_size">16sp</dimen>
     <dimen name="text_date_size">12sp</dimen>
-    <dimen name="tv_padding">16dp</dimen>
     <dimen name="date_tv_margin_bottom">12dp</dimen>
 </resources>
