@@ -78,12 +78,15 @@ dependencies {
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.13.1'
 
+    //Joda lib
+    implementation  'joda-time:joda-time:2.12.5'
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-
-    //Joda lib
-    implementation  'joda-time:joda-time:2.12.5'
+    testImplementation "io.mockk:mockk:1.10.5"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine_version"
 }
 
 configurations.implementation {
